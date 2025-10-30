@@ -103,7 +103,4 @@ public class Application {
         return bonus;
     }
 
-    public void checkBonus(int[] win, int bonus) {
-
-    }
 }
