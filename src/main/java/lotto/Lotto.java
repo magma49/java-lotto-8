@@ -53,4 +53,31 @@ public class Lotto {
         System.out.print("]");
     }
 
+    public int match(Lotto win, int bonus) {
+        int i = 0, j = 0, count = 0;
+        while (i < 6 && j < 6) {
+            if (numbers.get(i) > win.getNumber(j))
+                ++j;
+            else if (numbers.get(i) == win.getNumber(j)) {
+                ++count;
+                ++i;
+                ++j;
+            } else
+                ++i;
+        }
+        if (count == 5) {
+            try {
+                search(bonus);
+            } catch (IllegalArgumentException e) {
+                ++count;
+            }
+        } else if (count == 6) {
+            ++count;
+        }
+        return count;
+    }
+
+    public int getNumber(int num) {
+        return numbers.get(num);
+    }
 }

@@ -23,7 +23,10 @@ public class Application {
         int bonus = getValidBonus(win);
         System.out.print("\n");
         // 당첨 통계
-
+        System.out.println("당첨 통계");
+        for (Lotto lotto : lottos) {
+            System.out.println(lotto.match(win, bonus));
+        }
     }
 
     public static int getValidPurchase() {
