@@ -1,6 +1,7 @@
 package lotto;
 
 import camp.nextstep.edu.missionutils.Console;
+import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,13 +11,17 @@ public class Application {
         // TODO: 프로그램 구현
         int purchase = getValidPurchase();
 
+        System.out.print("\n");
         System.out.println(purchase + "개를 구매했습니다.");
-        // 로또 출력
+
+        Lotto[] lottos = makeLotto(purchase);
+        System.out.print("\n");
 
         Lotto win = getValidWin();
+        System.out.print("\n");
 
         int bonus = getValidBonus(win);
-
+        System.out.print("\n");
         // 당첨 통계
 
     }
@@ -103,4 +108,13 @@ public class Application {
         return bonus;
     }
 
+    public static Lotto[] makeLotto(int purchase) {
+        Lotto[] lottos = new Lotto[purchase];
+        for (int i = 0; i < purchase; ++i) {
+            lottos[i] = new Lotto(Randoms.pickUniqueNumbersInRange(1, 45, 6));
+            lottos[i].print();
+            System.out.print("\n");
+        }
+        return lottos;
+    }
 }

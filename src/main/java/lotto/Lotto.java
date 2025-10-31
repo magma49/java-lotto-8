@@ -41,4 +41,16 @@ public class Lotto {
 
         }
     }
+
+    public void print() {
+        System.out.print("[");
+        int i = 0;
+        for (int num : numbers) {
+            System.out.print(num);
+            if (++i != 6)
+                System.out.print(", ");
+        }
+        System.out.print("]");
+    }
+
 }
