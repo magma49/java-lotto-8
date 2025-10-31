@@ -54,6 +54,22 @@ class ApplicationTest extends NsTest {
         });
     }
 
+    @Test
+    void 로또를_안_사면_예외가_발생한다() {
+        assertSimpleTest(() -> {
+            runException("0");
+            assertThat(output()).contains(ERROR_MESSAGE);
+        });
+    }
+
+    @Test
+    void 구입금액이_1000단위가_아니면_예외가_발생한다() {
+        assertSimpleTest(() -> {
+            runException("10");
+            assertThat(output()).contains(ERROR_MESSAGE);
+        });
+    }
+
     @Override
     public void runMain() {
         Application.main(new String[]{});
