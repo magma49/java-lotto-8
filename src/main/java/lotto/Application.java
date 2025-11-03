@@ -27,7 +27,7 @@ public class Application {
         for (int i = 0; i < 5; ++i) {
             winning[i] = 0;
         }
-        
+
         System.out.println("당첨 통계");
         int match;
         for (Lotto lotto : lottos) {
