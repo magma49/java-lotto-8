@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Application {
@@ -124,7 +125,13 @@ public class Application {
     public static Lotto[] makeLotto(int purchase) {
         Lotto[] lottos = new Lotto[purchase];
         for (int i = 0; i < purchase; ++i) {
-            lottos[i] = new Lotto(Randoms.pickUniqueNumbersInRange(1, 45, 6));
+            List<Integer> list = List.of();
+            try {
+                list = Randoms.pickUniqueNumbersInRange(1, 45, 6);
+                list.sort(Comparator.naturalOrder());
+            } catch (UnsupportedOperationException e) {
+            }
+            lottos[i] = new Lotto(list);
             lottos[i].print();
             System.out.print("\n");
         }
