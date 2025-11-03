@@ -56,14 +56,14 @@ public class Lotto {
     public int match(Lotto win, int bonus) {
         int i = 0, j = 0, count = 0;
         while (i < 6 && j < 6) {
-            if (numbers.get(i) > win.getNumber(j))
+            if (numbers.get(i) > win.getNumber(j)) {
                 ++j;
-            else if (numbers.get(i) == win.getNumber(j)) {
+                continue;
+            } else if (numbers.get(i) == win.getNumber(j)) {
                 ++count;
-                ++i;
                 ++j;
-            } else
-                ++i;
+            }
+            ++i;
         }
         count = checkBonus(bonus, count);
         return count;
