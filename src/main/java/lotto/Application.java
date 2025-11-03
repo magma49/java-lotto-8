@@ -135,19 +135,14 @@ public class Application {
         int prize = 0;
         System.out.print("3개 일치 (5,000원) - " + winning[0] + "개\n");
         prize += winning[0] * 5;
-
         System.out.print("4개 일치 (50,000원) - " + winning[1] + "개\n");
         prize += winning[1] * 50;
-
         System.out.print("5개 일치 (1,500,000원) - " + winning[2] + "개\n");
         prize += winning[2] * 1500;
-
         System.out.print("5개 일치, 보너스 볼 일치 (30,000,000원) - " + winning[3] + "개\n");
         prize += winning[3] * 30000;
-
         System.out.print("6개 일치 (2,000,000,000원) - " + winning[4] + "개\n");
         prize += winning[4] * 2000000;
-
         System.out.print("총 수익률은 " + String.format("%.1f", (double) prize * 100 / purchase) + "%입니다.\n");
     }
 }

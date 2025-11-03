@@ -65,6 +65,11 @@ public class Lotto {
             } else
                 ++i;
         }
+        count = checkBonus(bonus, count);
+        return count;
+    }
+
+    public int checkBonus(int bonus, int count) {
         if (count == 5) {
             try {
                 search(bonus);
